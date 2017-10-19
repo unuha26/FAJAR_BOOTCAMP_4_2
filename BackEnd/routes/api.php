@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['prefix' => 'student'], function() {
+
+    Route::post('/addstudent', 'StudentDataController@AddStudent');
+    
+    Route::post('updatestudent', 'StudentDataController@UpdateStudent');
+});
